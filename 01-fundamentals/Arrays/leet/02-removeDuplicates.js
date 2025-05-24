@@ -39,16 +39,18 @@
 //It does not matter what you leave beyond the returned k (hence they are underscores).
 
 function removeDuplicates(nums) {
-  const duplicate = [];
+let i = 1;
+let j = 1;
 
-  for (let i = 0; i <= nums.length - 1; i++) {
-  let j = i + 1;
-    if (nums[i] === nums[j]) duplicate.push(j);
+  while (i < nums.length) {
+
+    if (nums[i] !== nums[i - 1]) {
+      nums[j] = nums[i]
+      j++
+    }
+    i++
   }
-  for (let i = nums.length - 1; i >= 0; i--) {
-    if  (duplicate.includes(i)) nums.splice(i, 1);
-  }
-  return nums
+  return j;
 }
 
 console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
