@@ -21,28 +21,23 @@
 //Output: [0,1]
 
 function twoSum(nums,target) {
-  const sorted = nums.sort((a,b) => a - b);
-  let l = sorted.length - 1;
+ const sorted = nums.toSorted((a,b) => a - b);
   let i = 0;
-  const result = [];
-  while (i < l) {
-    let count = sorted[i] + sorted[l];
-    if (count === target){
+  let j = sorted.length - 1;
+ const result = [];
+  while (i  < j) {
+   let sum = sorted[i] + sorted[j];
+    if (sum === target) {
       result.push(sorted[i]);
-      result.push(sorted[l]);
+      result.push(sorted[j]);
       break;
     }
-    if (count < target) {
-      i++;
-      count = 0;
-    }
-    if (sorted[l] > target) {
-      l--
-      count = 0;
-    }
-    console.log(i,l)
+     if (sum > target) j--;
+     if (sum < target) i++;
   }
-  let final = [nums.indexOf(result[0]),nums.indexOf(result[1])];
-  return final;
+  console.log(result)
+  console.log(nums);
+  const real = [nums.indexOf(result[0]),nums.lastIndexOf(result[1])]
+  return real;
 }
-console.log(twoSum([2,7,11,15], 9));
+console.log(twoSum([3,2,4], 6));
