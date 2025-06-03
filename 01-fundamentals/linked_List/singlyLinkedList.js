@@ -89,6 +89,24 @@ class Linkedlist {
             current = current.next;
         }
     }
+    shift() {
+        if (this.head === null) return null;
+
+        const temp = this.head;
+        this.head = this.head.next;
+        return temp;
+    }
+    pop() {
+        let current = this.head;
+
+        while (current.next.next !== null) {
+            current = current.next
+        }
+        console.log(current)
+        current.next = null;
+        this.tail = current;
+        return this.head;
+    }
 }
 
 const myLinkedList = new Linkedlist(1);
@@ -99,5 +117,6 @@ myLinkedList.push(4);
 myLinkedList.push(5);
 myLinkedList.push(6);
 myLinkedList.unshift(0);
-myLinkedList.insertForIndex(4,10);
+myLinkedList.shift();
+console.log(myLinkedList.pop());
 console.log(myLinkedList);
