@@ -162,3 +162,4 @@ myLinkedList.pop();
 //console.log(myLinkedList);
 console.log(myLinkedList.changeData(1,'banana'));
 console.log(myLinkedList);
+console.log(testing);
