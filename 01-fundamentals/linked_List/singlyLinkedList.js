@@ -97,15 +97,53 @@ class Linkedlist {
         return temp;
     }
     pop() {
+        if (!this.head || !this.head.next) return null;
+
         let current = this.head;
 
         while (current.next.next !== null) {
             current = current.next
         }
-        console.log(current)
-        current.next = null;
+       current.next = null;
         this.tail = current;
         return this.head;
+    }
+
+    deleteForIndex(index) {
+        if (!this.head) return null;
+        if (index < 0) return "Index must be greater than 0";
+        let length = 0;
+        let result;
+        let current = this.head;
+        while (current !== null) {
+
+            if (length + 1 === index) {
+                const temp = current.next;
+                current.next = temp.next;
+                result = temp;
+            }
+            length++;
+            current = current.next;
+        }
+        if (index > length) return 'Invalid index';
+        return result;
+    }
+
+    changeData(index,data) {
+        if (index < 0) return;
+        let length = 1;
+        let current = this.head;
+        let result;
+        while (current !== null) {
+            if (length === index) {
+                current.data = data;
+                result = current;
+            }
+            length++;
+            current = current.next;
+        }
+        if (index > length) return 'Invalid Value'
+        return result;
     }
 }
 
@@ -118,5 +156,9 @@ myLinkedList.push(5);
 myLinkedList.push(6);
 myLinkedList.unshift(0);
 myLinkedList.shift();
-console.log(myLinkedList.pop());
+myLinkedList.pop();
+//console.log(myLinkedList);
+//console.log(myLinkedList.deleteForIndex(1));
+//console.log(myLinkedList);
+console.log(myLinkedList.changeData(1,'banana'));
 console.log(myLinkedList);
