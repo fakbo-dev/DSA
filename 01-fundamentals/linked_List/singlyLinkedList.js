@@ -145,6 +145,18 @@ class Linkedlist {
         if (index > length) return 'Invalid Value'
         return result;
     }
+    reverse() {
+        let prev = null;
+        let current = this.head;
+        let next;
+        while (next !== null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    };
 }
 
 const myLinkedList = new Linkedlist(1);
@@ -160,6 +172,5 @@ myLinkedList.pop();
 //console.log(myLinkedList);
 //console.log(myLinkedList.deleteForIndex(1));
 //console.log(myLinkedList);
-console.log(myLinkedList.changeData(1,'banana'));
+console.log(myLinkedList.reverse());
 console.log(myLinkedList);
-console.log(testing);
