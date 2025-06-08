@@ -79,7 +79,7 @@ class DoublyLinkedList {
         if (index === this.length()) {this.push(data); return;}
         if (index > this.length()) return 'the index is greater than the List'
         const newNode = new Node(data)
-        let length = 0;;
+        let length = 0;
         let current = this.head;
 
         while (current !== null) {
@@ -100,6 +100,38 @@ class DoublyLinkedList {
         }
         return newNode;
     }
+    pop() {
+        if (this.head === null)  return;
+        if (this.head.next === null) {
+            const removedNode = this.head;
+            this.head = null;
+            return removedNode;
+        }
+        let current = this.head;
+
+        while (current.next.next !== null) {
+            current = current.next;
+        }
+        let removedNode = current.next;
+        current.next = null;
+        removedNode.prev = null;
+        return removedNode;
+    }
+    print() {
+        let current = this.head;
+
+        while (current !== null) {
+            console.log(current.data);
+
+            current = current.next;
+        }
+    }
+    deleteForIndex(index,data) {
+        if (index < 0 ) return 'the index is lower than the first node'
+        if (index === 0) {this.pop(); return;}
+        if (index === this.length()) {this.push(data); return;}
+        if (index > this.length()) return 'the index is greater than the List'
+    }
 }
 
 
@@ -113,4 +145,6 @@ myDoublyLinkedList.push(4);
 //console.log(myDoublyLinkedList.length());
 myDoublyLinkedList.unshift(0);
 //console.log(myDoublyLinkedList);
-console.log(myDoublyLinkedList.insert(2,'minus'));
+//console.log(myDoublyLinkedList.insert(2,'minus'));
+console.log(myDoublyLinkedList.pop());
+myDoublyLinkedList.print();
