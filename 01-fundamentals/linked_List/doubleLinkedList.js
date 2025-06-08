@@ -10,14 +10,17 @@ class Node {
 
 class DoublyLinkedList {
 
-    constructor(node) {
-        this.head = new Node(node);
+    constructor() {
+        this.head = null;
     }
 
     push(data) {
         const newNode = new Node(data);
         let lastNode = this.head;
-
+        if (this.head === null) {
+            this.head = newNode;
+            return newNode;
+        }
         while (lastNode.next !== null) {
             lastNode = lastNode.next;
         }
@@ -36,7 +39,8 @@ class DoublyLinkedList {
 }
 
 
-const myDoublyLinkedList = new DoublyLinkedList(1);
+const myDoublyLinkedList = new DoublyLinkedList();
+myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
 myDoublyLinkedList.push(4);
