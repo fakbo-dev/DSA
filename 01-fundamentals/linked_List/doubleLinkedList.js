@@ -28,13 +28,26 @@ class DoublyLinkedList {
         newNode.prev = lastNode;
         return newNode;
     }
-    print() {
+    traversal() {
         let current = this.head
-
+        const arr = [];
         while (current !== null) {
-        console.log(current.data);
+            arr.push(current.data);
             current = current.next;
         }
+        return arr;
+    }
+    reverseTraversal() {
+        let current = this.head;
+        const arr = [];
+        while (current.next !== null) {
+            current = current.next;
+        }
+        while (current !== null) {
+            arr.push(current.data);
+            current = current.prev;
+        }
+        return arr;
     }
 }
 
@@ -44,4 +57,5 @@ myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
 myDoublyLinkedList.push(4);
-myDoublyLinkedList.print();
+console.log(myDoublyLinkedList.traversal());
+console.log(myDoublyLinkedList.reverseTraversal());
