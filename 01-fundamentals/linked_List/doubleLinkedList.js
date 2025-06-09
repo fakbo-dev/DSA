@@ -100,6 +100,20 @@ class DoublyLinkedList {
         }
         return newNode;
     }
+    shift() {
+        if (this.head === null) return;
+        if (this.head.next === null) {
+            const oldHead = this.head;
+            this.head = null;
+            return oldHead;
+        }
+        let newHead = this.head.next;
+        let oldHead = this.head;
+        this.head.next = null;
+        newHead.prev = null;
+        this.head = newHead;
+        return oldHead;
+    }
     pop() {
         if (this.head === null)  return;
         if (this.head.next === null) {
@@ -131,7 +145,9 @@ class DoublyLinkedList {
         if (index === 0) {this.pop(); return;}
         if (index === this.length()) {this.push(data); return;}
         if (index > this.length()) return 'the index is greater than the List'
+
     }
+
 }
 
 
@@ -146,5 +162,6 @@ myDoublyLinkedList.push(4);
 myDoublyLinkedList.unshift(0);
 //console.log(myDoublyLinkedList);
 //console.log(myDoublyLinkedList.insert(2,'minus'));
-console.log(myDoublyLinkedList.pop());
+console.log(myDoublyLinkedList.shift());
+//console.log(myDoublyLinkedList.pop());
 myDoublyLinkedList.print();
