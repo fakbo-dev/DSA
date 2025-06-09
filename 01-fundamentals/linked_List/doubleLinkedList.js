@@ -145,7 +145,6 @@ class DoublyLinkedList {
         if (index === 0) {this.pop(); return;}
         if (index === this.length()) {this.push(data); return;}
         if (index > this.length()) return 'the index is greater than the List'
-
     }
 
 }
