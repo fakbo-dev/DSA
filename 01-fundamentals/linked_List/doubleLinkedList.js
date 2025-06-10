@@ -140,13 +140,30 @@ class DoublyLinkedList {
             current = current.next;
         }
     }
-    deleteForIndex(index,data) {
-        if (index < 0 ) return 'the index is lower than the first node'
-        if (index === 0) {this.pop(); return;}
-        if (index === this.length()) {this.push(data); return;}
-        if (index > this.length()) return 'the index is greater than the List'
-    }
+    deleteForIndex(index) {
+        if (this.head === null) return null;
+        const length = this.length();
+        if (index < 1 || index > length) return 'Index Out of Bounds';
+        if (index === 1) return this.shift();
+        if (index === length) return this.pop();
 
+        let current = this.head;
+        let count = 1;
+
+        while (count < index - 1) {
+            current = current.next;
+            count++;
+        }
+        let nodeDeleted = current.next
+        current.next = nodeDeleted.next;
+        if (nodeDeleted.next !== null) {
+            nodeDeleted.next.prev = current;
+        }
+        nodeDeleted.prev = null;
+        nodeDeleted.next = null;
+
+        return nodeDeleted;
+    }
 }
 
 
@@ -161,6 +178,8 @@ myDoublyLinkedList.push(4);
 myDoublyLinkedList.unshift(0);
 //console.log(myDoublyLinkedList);
 //console.log(myDoublyLinkedList.insert(2,'minus'));
-console.log(myDoublyLinkedList.shift());
+//console.log(myDoublyLinkedList.shift());
 //console.log(myDoublyLinkedList.pop());
+//myDoublyLinkedList.print();
+myDoublyLinkedList.deleteForIndex(3);
 myDoublyLinkedList.print();
