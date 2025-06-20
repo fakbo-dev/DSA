@@ -48,10 +48,6 @@ class Queue {
   size() {
     return this.size;
   }
-  clear() {
-    if (!this.front && !this.rear) return null
-
-  }
 }
 
 
@@ -63,4 +59,5 @@ myQueue.enqueue(3);
 //console.log(myQueue);
 //myQueue.dequeue();
 //console.log(myQueue);
-console.log(myQueue.peek());
+//console.log(myQueue.peek());
+console.log(myQueue);
