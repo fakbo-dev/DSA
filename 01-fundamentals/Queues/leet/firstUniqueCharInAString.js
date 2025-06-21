@@ -16,13 +16,15 @@
 //Output: -1
 
 function firstUniqChar(s) {
-
-  for (let i = 0; i <= s.length; i++) {
-
-    for (let j = i + 1; j <= s.length; j++) {
-      console.log(i,j);
-    }
+  let [...shallow] = s;
+  let temp;
+  for (let i = 0; i <= s.length - 1; i++) {
+    temp = shallow.shift();
+    if (!shallow.includes(temp))
+    {
+      return i;
+    } else if (i === s.length) return -1
   }
 }
 
-firstUniqChar('leetcode');
+console.log(firstUniqChar('aabb'));
