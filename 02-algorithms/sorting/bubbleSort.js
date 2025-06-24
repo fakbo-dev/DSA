@@ -27,15 +27,3 @@ function bubbleSort(arr) {
 
 
 console.log(bubbleSort([7,12,9,11,3]));
-
-
-  //while (i <= arr.length - 1) {
-  //  // i need to iterate over the array n times
-  //  // how do i do that?
-  //  if (arr[i] > arr[i + 1] && arr[i + 1] !== undefined) {
-  //    temp = arr[i];
-  //    arr[i] = arr[i + 1];
-  //    arr[i + 1] =  temp
-  //  }
-  //  i++;
-  //}
