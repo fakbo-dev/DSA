@@ -1,7 +1,16 @@
-function sum(n) {
-if (n === 1) return 1;
+function sum(int)
+{
+  let res = 0;
+  let i = 0;
+  while (i <= int)
+  {
+    res += i;
+    i++;
+  }
 
-return n + sum(n - 1);
+  return res
 }
 
+
 console.log(sum(5));
+
