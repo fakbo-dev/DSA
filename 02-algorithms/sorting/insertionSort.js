@@ -1,24 +1,24 @@
-// Take two part in the arr one with the sorted Elements and the other with the unsorted elements
-// each time we compare the current value with the sortedList go tho the left if the value is 
-//  lower than the value of the left until the comparison return false
-//  go to the right if the value is greater than the check value
-//  repeat until there's no more value lefts
-function insertionSort(arr) {
-  for (let i = 1; i <= arr.length - 1; i++) {
+function insertionSort(arr)
+{
+  for (let i = 1; i <= arr.length - 1;i++)
+  {
     let temp = arr[i];
-    let j = i - 1;
-
-    while (j >= 0 && temp < arr[j]) {
-      arr[j + 1] = arr[j];
-      j--
+    let j = i;
+    while (j > 0)
+    {
+      if (temp < arr[j - 1])
+      {
+        arr[j] = arr[j-1]
+        j--
+      }
+      else
+      {
+        break;
+      }
     }
-
-    arr[j + 1] = temp;
+    arr[j] = temp;
   }
-
   return arr;
 }
-
-
-
-console.log(insertionSort([64, 34, 25, 12, 22, 11, 90, 5]));
+// console.log(insertionSort([7,4,5,2]));
+console.log(insertionSort([419,278,120,370,1,810,160,102]));

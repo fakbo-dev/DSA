@@ -1,22 +1,22 @@
-function selectionSort(arr) {
-
-  for (let i = 0; i <= arr.length - 1;i++) {
-    let ln = i;
+function selectionSort(arr)
+{
+  const length = arr.length - 1;
+  for (let i = 0; i <= length; i++)
+  {
+    let max = 0;
+    let lastIndex = length - i;
     let temp;
-    for (let j = i + 1; j< arr.length;j++) {
-
-      if (arr[j] < arr[ln]) {
-        ln = j;
-      }
+    for (let j = 0; j <= length - i; j++)
+    {
+      if (arr[j] > arr[max]) max = j;
     }
-    temp = arr[i];
-    arr[i] = arr[ln];
-    arr[ln] = temp;
+        temp = arr[lastIndex]
+        arr[lastIndex] = arr[max];
+        arr[max] = temp;
   }
-  console.log(arr);
+
+  return arr;
 }
 
-
- 
-selectionSort([7,12,9,11,3]);
-selectionSort([64, 34, 25, 12, 22, 11, 90, 5]);
+console.log(selectionSort([7,12,9,11,3]));
+console.log(selectionSort([64, 34, 25, 12, 22, 11, 90, 5]));
