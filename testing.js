@@ -30,4 +30,3 @@ function merge(left,right)
 }
 
 console.log(mergeSort([3,7,8,5,4,2,6,1]));
-
