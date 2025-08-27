@@ -7,9 +7,9 @@ function insertionSort(arr)
 
         while (j > 0)
         {
-            if (temp < arr[j - 1])
+            if (temp < arr[j-1])
             {
-                arr[j] = arr[j - 1];
+                arr[j] = arr[j-1];
                 j--;
             }
             else
