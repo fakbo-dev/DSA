@@ -1,30 +1,27 @@
 function bubbleSort(arr)
 {
-  let i = 0;
-  const arrLength = arr.length - 1
+    const length = arr.length - 1;
 
-  while (i <= arrLength)
-  {
-    let j = 1;
-    let temp;
-    let sorted = false;
-    while (j <= arrLength)
+    for (let i = 0; i <= length; i++)
     {
-      if (arr[j - 1] > arr[j])
-      {
-        temp = arr[j];
-        arr[j] = arr[j - 1];
-        arr[j - 1] = temp;
-        sorted = true;
-      }
-      j++;
-    }
-    if (!sorted) return arr;
-    i++;
-  }
-  return arr;
-}
+        let k;
+        let sorted = false
+        for (let j = 1; j <= length; j++)
+        {
+            if (arr[j-1] > arr[j])
+            {
+                k = arr[j];
+                arr[j] = arr[j-1];
+                arr[j-1] = k;
+                sorted = true;
+                console.log(sorted);
+            }
 
-// console.log(bubbleSort([7,12,9,11,3]));
-console.log(bubbleSort([100, 50, 75, 25, 1000, 1, 0, -1]));
+        }
+        if (!sorted) return arr;
+    }
+    return arr;
+}
+console.log(bubbleSort([7,12,9,11,3]));
+// console.log(bubbleSort([100, 50, 75, 25, 1000, 1, 0, -1]));
 // console.log(bubbleSort([7, 3, 9, 12, 11]));
