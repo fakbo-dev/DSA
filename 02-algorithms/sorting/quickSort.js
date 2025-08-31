@@ -1,28 +1,30 @@
-function quickSort(arr)
+function quickSort(arr,start =0, end = arr.length - 1)
 {
-    if (arr.length === 1) return arr;
-    const pivot = Math.floor((arr.length - 1) / 2);
-    [arr[pivot],arr[arr.length -1]] = [arr[arr.length - 1], arr[pivot]]
-
-    let i = 0;
-    let j  = (arr.length - 1) - 1;
-    while (true)
-    {
-        while (arr[i] < arr[arr.length - 1])
-        {
-            i++;
-        }
-        while (arr[j] > arr[arr.length - 1])
-        {
-            j--;
-        }
-        if (i > j) break;
-        [arr[i],arr[j]] = [arr[j],arr[i]];
-    }
-    [arr[i],arr[arr.length - 1]] = [arr[arr.length - 1], arr[i]]
-    const left = arr.slice(0,i - 1);
-    const right = arr.slice(i +1);
-    quickSort(left);
+    if (start >= end) return;
+    const pivotIndex = partition(arr,start,end);
+    quickSort(arr,start,pivotIndex - 1);
+    quickSort(arr,pivotIndex + 1, end);
 }
 
-quickSort([316,933,337,671,21,35,966,495]);
+
+function partition(arr,start,end)
+{
+    const pivot = arr[end];
+    let i = start;
+
+    for (let j = start; j < end; j++)
+    {
+        if (arr[j] < pivot)
+        {
+            [arr[i],arr[j]] = [arr[j],arr[i]];
+            i++;
+        }
+    }
+    [arr[i],arr[end]] = [arr[end],arr[i]];
+
+    return i;
+}
+const unorderArr = [316,933,337,671,21,35,966,495];
+console.log(unorderArr)
+quickSort(unorderArr);
+console.log(unorderArr)
