@@ -14,16 +14,27 @@ class BinaryTree
   {
     this.root = null
   }
-  insert(value)
+
+  insert(data)
   {
-    const newNode = new Node(value);
-    if (!this.root) return this.root = newNode;
+    const newNode = new Node(data);
+    if (this.root === null) return this.root = newNode;
+    let temp = this.root
+
+    while (true)
+    {
+      if (temp.left === null)
+      {
+        return temp.left = newNode;
+      }
+      else
+      {
+
+      }
+    }
   }
 }
 
-const BFS = new BinaryTree();
-BFS.insert(2);
-BFS.insert(3);
-BFS.insert(4);
-console.log("[01-fundamentals/Tree/binaryTree.js:29] BFS = ", BFS)
-BFS.insert(5);
+const tree = new BinaryTree();
+tree.insert(89);
+console.log("tree = ", tree)
