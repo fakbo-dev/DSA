@@ -27,9 +27,9 @@ class BinaryTree
       {
         return temp.left = newNode;
       }
-      else
+      else if (temp.right === null)
       {
-
+        return temp.right = newNode;
       }
     }
   }
@@ -37,4 +37,7 @@ class BinaryTree
 
 const tree = new BinaryTree();
 tree.insert(89);
+tree.insert(52);
+tree.insert(98);
+tree.insert(87);
 console.log("tree = ", tree)
