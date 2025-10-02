@@ -15,19 +15,20 @@ class BinaryTree
     this.root = null
   }
 
-  inOrder(node = this.root)
-  {
-    if (node === null) return;
-    this.inOrder(node.left);
-    console.log(node.data);
-    this.inOrder(node.right);
-  }
   preOrder(node = this.root)
   {
     if (node === null) return;
     console.log(node.data);
     this.preOrder(node.left);
     this.preOrder(node.right);
+  }
+
+  inOrder(node = this.root)
+  {
+    if (node === null) return;
+    this.inOrder(node.left);
+    console.log(node.data);
+    this.inOrder(node.right);
   }
   postOrder(node = this.root)
   {
