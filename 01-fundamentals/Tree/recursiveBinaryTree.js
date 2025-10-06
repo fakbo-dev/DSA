@@ -37,6 +37,10 @@ class BinaryTree
     this.postOrder(node.right);
     console.log(node.data);
   }
+  getLevel()
+  {
+
+  }
 }
 
 
@@ -57,5 +61,5 @@ tree.root.right.left.right = new Node(52);
 tree.root.right.right.left = new Node(19);
 tree.root.right.right.right = new Node(59);
 console.log(tree.preOrder());
-console.log(tree.inOrder());
-console.log(tree.postOrder());
+// console.log(tree.inOrder());
+// console.log(tree.postOrder());
