@@ -19,15 +19,11 @@ class BinaryTree
 
   BFSHANDLER(node,level,queue)
   {
-    //base case
     if (node === null) return;
 
-    //2. check if there a new level if so push an level separator
     if (queue.length <= level) queue.push([]);
 
-    //3. push my values to my level separator
     queue[level].push(node.value);
-    // 4. check my left and right nodes
     this.BFSHANDLER(node.left,level + 1, queue);
     this.BFSHANDLER(node.right,level + 1, queue);
   }
