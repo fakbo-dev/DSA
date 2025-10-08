@@ -39,11 +39,48 @@ class BinaryTree
     const response = this.BFS();
     return response.length - 1;
   }
+  getNodeCount()
+  {
+    const response = this.BFS();
+    let i = 0;
+    let count = 0;
+    while (i <= response.length - 1)
+    {
+      let j = 0;
+      while (j <= response[i].length - 1)
+      {
+        count++;
+        j++;
+      }
+      i++;
+    }
+    return count;
+  }
+  preOrder(node = this.root)
+  {
+    if (node === null) return;
+    console.log(node.value);
+    this.preOrder(node.left);
+    this.preOrder(node.right);
+  }
+  inOrder(node = this.root)
+  {
+    if (node === null) return;
+    this.inOrder(node.left);
+    console.log(node.value);
+    this.inOrder(node.right);
+  }
+  postOrder(node = this.root)
+  {
+    if (node === null) return;
+    this.postOrder(node.left);
+    this.postOrder(node.right);
+    console.log(node.value);
+  }
 }
 
 const tree = new BinaryTree();
 
-//Create the Nodes
 const firstNode = new Node(19);
 const secondNode  = new Node(9);
 const thirdNode = new Node(16);
@@ -51,13 +88,15 @@ const fourthNode = new Node(24);
 const fifthNode = new Node(75);
 const sixthNode = new Node(17);
 
-// link the binary Tree
-
 tree.root = firstNode;
 tree.root.left = secondNode;
 tree.root.right = thirdNode;
 tree.root.left.left = fourthNode;
 tree.root.left.right = fifthNode;
 tree.root.right.left = sixthNode;
-console.log(tree.BFS());
-console.log(tree.getLevel());
+// console.log(tree.BFS());
+// console.log(tree.getLevel());
+// console.log(tree.getNodeCount());
+// console.log(tree.preOrder());
+// console.log(tree.inOrder());
+console.log(tree.postOrder());
