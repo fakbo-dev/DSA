@@ -87,6 +87,11 @@ class Tree
     }
     return response;
   }
+  // left -> root -> right
+  inOrder()
+  {
+
+  }
 }
 
 
