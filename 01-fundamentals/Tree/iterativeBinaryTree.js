@@ -88,9 +88,28 @@ class Tree
     return response;
   }
   // left -> root -> right
+  // use stack
   inOrder()
   {
+    const s = [];
+    const response = [];
+    let current = this.root;
+    while (current !== null || s.length > 0)
+    {
 
+      if (current !== null)
+      {
+        s.unshift(current);
+        current = current.left;
+      } else {
+      let removedNode = s.shift();
+      response.push(removedNode.value);
+      current = removedNode.right;
+      }
+
+    }
+
+    return response.join(" -> ")
   }
 }
 
@@ -112,4 +131,15 @@ tree.root.right.right.right = new Node(11);
 // console.log(tree.BFS())
 // console.log(tree.getLevel());
 // console.log(tree.getNodeCount());
-console.log(tree.preOrder());
+// console.log(tree.preOrder());
+// console.log(tree.inOrder());
+
+const treeTwo = new Tree();
+
+treeTwo.root = new Node(1);
+treeTwo.root.left = new Node(2);
+treeTwo.root.right = new Node(3);
+treeTwo.root.left.left = new Node(4);
+treeTwo.root.left.right = new Node(5);
+
+console.log(treeTwo.inOrder());
