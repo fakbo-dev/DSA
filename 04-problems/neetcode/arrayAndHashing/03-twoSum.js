@@ -41,7 +41,8 @@ function twoSum(nums,target)
     {
         let sum = shallowCopy[i][0] + shallowCopy[j][0];
 
-        if (sum === target) return [Math.min(shallowCopy[i][1],shallowCopy[j][1]),Math.max(shallowCopy[i][1],shallowCopy[j][1])];
+        if (sum === target) return [Math.min(shallowCopy[i][1],shallowCopy[j][1]),
+                                   Math.max(shallowCopy[i][1],shallowCopy[j][1])];
         if (sum < target) i++;
         if (sum > target) j--;
     }
