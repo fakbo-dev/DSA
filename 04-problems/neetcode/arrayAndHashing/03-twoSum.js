@@ -52,7 +52,7 @@ function twoSum(nums,target)
 }
 
 console.log(twoSum([-1,-2,-3,-4,-5],-8));
-//clever move!
+//clever move! using hashmap
 function testing(nums)
 {
         let A = [];
