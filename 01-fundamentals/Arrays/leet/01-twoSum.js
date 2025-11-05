@@ -43,7 +43,7 @@ function twoSum(nums, target)
   }
   console.log(result)
   console.log(nums);
-  const real =
-      [ nums.indexOf(result[0]), nums.lastIndexOf(result[1]) ] return real;
+  const real = [ nums.indexOf(result[0]), nums.lastIndexOf(result[1]) ];
+  return real;
 }
 console.log(twoSum([ 3, 2, 4 ], 6));
