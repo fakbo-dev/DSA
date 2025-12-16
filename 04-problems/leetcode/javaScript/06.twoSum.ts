@@ -58,34 +58,58 @@ function twoSumBruteForce(nums: number[], target: number): number[]
 // console.log(twoSumBruteForce([ 3, 2, 4 ], 6));
 // console.log(twoSumBruteForce([ 3, 3 ], 6));
 
-function twoSumSorted(nums: number[], target: number): number[]|string
+// function twoSumSorted(nums: number[], target: number): number[]|string
+// {
+//   const arr: number[][] = [];
+//   const length: number = nums.length - 1;
+//   for (let i = 0; i <= length; i++)
+//   {
+//     arr.push([ nums[i], i ]);
+//   }
+//   const sorted: number[][] =
+//       arr.sort((a: number[], b: number[]) => a[0] - b[0]);
+//
+//   let i: number = 0;
+//   let j: number = length;
+//
+//   while (i < j)
+//   {
+//     let sum: number = sorted[i][0] + sorted[j][0];
+//     if (sum === target)
+//       return [ sorted[i][1], sorted[j][1] ];
+//     if (sum < target)
+//       i++;
+//     if (sum > target)
+//       j--;
+//   }
+//
+//   return "out of bounce check the code"
+// }
+
+// console.log(twoSumSorted([ 2, 7, 11, 15 ], 9));
+// console.log(twoSumSorted([ 3, 2, 4 ], 6));
+// console.log(twoSumSorted([ 3, 3 ], 6));
+
+function twoSum(nums: number[], target: number): number[]
 {
-  const arr: number[][] = [];
-  const length: number = nums.length - 1;
-  for (let i = 0; i <= length; i++)
+  const map = new Map();
+  for (let i: number = 0; i <= nums.length - 1; i++)
   {
-    arr.push([ nums[i], i ]);
+    map.set(nums[i], i);
   }
-  const sorted: number[][] =
-      arr.sort((a: number[], b: number[]) => a[0] - b[0]);
-
-  let i: number = 0;
-  let j: number = length;
-
-  while (i < j)
+  for (let i: number = 0; i <= nums.length - 1; i++)
   {
-    let sum: number = sorted[i][0] + sorted[j][0];
-    if (sum === target)
-      return [ sorted[i][1], sorted[j][1] ];
-    if (sum < target)
-      i++;
-    if (sum > target)
-      j--;
-  }
+    let remainder: number = target - nums[i];
 
-  return "out of bounce check the code"
+    if (map.has(remainder) && i !== map.get(remainder))
+    {
+
+      return [ i, map.get(remainder) ];
+    }
+  }
+  return [];
 }
 
-console.log(twoSumSorted([ 2, 7, 11, 15 ], 9));
-console.log(twoSumSorted([ 3, 2, 4 ], 6));
-console.log(twoSumSorted([ 3, 3 ], 6));
+console.log(twoSum([ 2, 7, 11, 15 ], 9));
+console.log(twoSum([ 3, 2, 4 ], 6));
+console.log(twoSum([ 3, 3 ], 6));
