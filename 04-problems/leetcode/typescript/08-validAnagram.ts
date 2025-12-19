@@ -24,25 +24,22 @@ function isAnagram(s: string, t: string): boolean
   {
     return false
   }
-  const shallowCopyS: string[] = s.split('');
-  const shallowCopyT: string[] = t.split('');
-  let i: number = 0;
-  while (i <= shallowCopyS.length - 1)
+
+  const map = new Map();
+
+  for (const elements of s)
   {
-    let j: number = 0;
 
-    if (shallowCopyS[i] !== shallowCopyT[t])
+    if (!map.has(elements))
     {
-      j++;
+      map.set(elements, 1);
     }
-    shallowCopyS.splice(i, 1);
-    shallowCopyT.splice(j, 1);
-    i++
+    else
+    {
+      map.set(elements, map.get(elements) + 1);
+    }
   }
-
-  console.log(shallowCopyS);
-  console.log(shallowCopyT);
 }
 
 console.log(isAnagram('anagram', 'nagaram'));
-// console.log(isAnagram('rat', 'car'));
+console.log(isAnagram('rat', 'car'));
